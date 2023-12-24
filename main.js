@@ -137,15 +137,16 @@ function EvilCircle(x, y) {
     this.y = e.offsetY
   });
 
-  if (window.width < 797) {
-    window.addEventListener("touchmove", (e) => {
-      e.preventDefault(); // Prevent default touch behavior, like scrolling
-      let touchX = this.x;
-      let touchY = this.y;
-      touchX = e.touches[0].clientX;
-      touchY = e.touches[0].clientY;
-    })
-  }
+  
+    if (window.innerWidth < 797) {
+      canvas.addEventListener("touchmove", (e) => {
+        e.preventDefault(); // Prevent default touch behavior, like scrolling
+        const touch = e.touches[0];
+        this.x = touch.pageX - canvas.offsetLeft;
+        this.y = touch.pageY - canvas.offsetTop;
+        this.draw();
+      });
+    }
 }
 
 const evilBall = new EvilCircle(random(0, width), random(0, height));
