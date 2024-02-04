@@ -126,7 +126,19 @@ function EvilCircle(x, y) {
             // ctx = null
             document.querySelector('.congratsPara').style.display = 'flex';
             document.querySelector('.ballCount').style.display = 'none';
-          }
+            const startIt = () => {
+              setTimeout( function () {
+                  startConfetti();
+              }, 500);
+            }
+            const stopIt = () => {
+              setTimeout( function () {
+                  stopConfetti();
+              }, 6000);
+            }
+            startIt();
+            stopIt();
+            }
         }
       }
     }
@@ -153,7 +165,7 @@ const evilBall = new EvilCircle(random(0, width), random(0, height));
 
 const balls = [];
 
-while (balls.length < 5) {
+while (balls.length < 10) {
   const size = random(10, 20);
   const ball = new Ball(
     random(0 + size, width - size),
