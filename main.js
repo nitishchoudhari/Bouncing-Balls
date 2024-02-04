@@ -178,7 +178,7 @@ while (balls.length < 10) {
   );
   balls.push(ball);
   count++;
-  para.textContent = 'Ball count: ' + count;
+  para.textContent = 'Ball count: ' + count; 
 }
 
 function loop() {
@@ -203,3 +203,7 @@ function loop() {
 }
 
 loop();
+
+setTimeout(function() {
+  document.querySelector('.gameInfo').classList.add('fadeOut');
+}, 4500);
